@@ -1,0 +1,15 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: mock-server
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - host: mock-server.local
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: mock-server
+          servicePort: 80
